@@ -13,12 +13,11 @@ class Square():
         self.__size = size
 
         e = "position must be a tuple of 2 positive integers"
-        if type(position) is not tuple or len(tuple) != 2:
-            raise TypeError(e)
-        if type(position) is tuple and len(tuple) == 2:
-            for num in position:
-                if type(num) is not int or num < 0:
-                    raise TypeError(e)
+        if type(position) is not tuple or len(position) != 2:
+            raise TypeError(e)        
+        for num in position:
+            if type(num) is not int or num < 0:
+                raise TypeError(e)
         self.__position = position
 
     def area(self):
@@ -48,12 +47,11 @@ class Square():
     def position(self, value):
         """Sets the position of the square"""
         e = "position must be a tuple of 2 positive integers"
-        if type(value) is not tuple or len(tuple) != 2:
+        if type(value) is not tuple or len(value) != 2:
             raise TypeError(e)
-        if type(value) is tuple and len(tuple) == 2:
-            for num in value:
-                if type(num) is not int or num < 0:
-                    raise TypeError(e)
+        for num in value:
+            if type(num) is not int or num < 0:
+                raise TypeError(e)
         self.__position = value
 
     def my_print(self):
