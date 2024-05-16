@@ -38,7 +38,7 @@ class Square():
         if type(value) is not tuple or len(tuple) != 2:
             raise TypeError(e)
         if type(value) is tuple and len(tuple) == 2:
-            for num in value: 
+            for num in value:
                 if num < 0:
                     raise TypeError(e)
         self.__position = value
