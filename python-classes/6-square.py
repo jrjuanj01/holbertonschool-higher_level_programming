@@ -5,19 +5,7 @@
 class Square():
     """Square class of objects"""
     def __init__(self, size=0, position=(0, 0)):
-        if type(size) is not int:
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
         self.__size = size
-        
-        e = "position must be a tuple of 2 positive integers"
-        if type(position) is not tuple or len(tuple) != 2:
-            raise TypeError(e)
-        if type(position) is tuple and len(tuple) == 2:
-            for num in position:
-                if num < 0:
-                    raise TypeError(e)
         self.__position = position
 
     def area(self):
@@ -50,7 +38,7 @@ class Square():
         if type(value) is not tuple or len(tuple) != 2:
             raise TypeError(e)
         if type(value) is tuple and len(tuple) == 2:
-            for num in value:
+            for num in value: 
                 if num < 0:
                     raise TypeError(e)
         self.__position = value
