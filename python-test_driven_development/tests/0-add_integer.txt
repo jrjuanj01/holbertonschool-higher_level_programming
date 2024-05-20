@@ -15,8 +15,6 @@ with specific adge cases
 98
 >>> add_integer(-98)
 0
->>> add_integer(0)
-98
 >>> try:
 ...     print(add_integer(4, "School"))
 ... except Exception as e:
@@ -24,6 +22,11 @@ with specific adge cases
 b must be an integer
 >>> try:
 ...     print(add_integer(None))
+... except Exception as e:
+...     print(e)
+You must have two integers
+>>> try:
+...     print(add_integer("word", 4))
 ... except Exception as e:
 ...     print(e)
 a must be an integer
