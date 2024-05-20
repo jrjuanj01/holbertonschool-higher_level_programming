@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""This script divides each number in a matrix by the given number"""
+    
+    
 def matrix_divided(matrix, div):
+    """dividing function"""
+    
     try:
         for lists in matrix:
             for nums in lists:
