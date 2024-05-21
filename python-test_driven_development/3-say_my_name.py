@@ -5,14 +5,14 @@
 def say_my_name(first_name, last_name=""):
     """Print function"""
 
-    fn_err = "first_name must be a string"
-    ln_err = "last_name must be a string"
+    first = "first_name must be a string"
+    last = "last_name must be a string"
 
     if type(first_name) is not str:
-        raise TypeError(fn_err)
+        raise TypeError(first)
     if type(last_name) is not str:
-        raise TypeError(ln_err)
+        raise TypeError(last)
     if last_name is "":
-        print(f"My name is {first_name}")
+        print(f"My name is {first_name} ")
     else:
         print(f"My name is {first_name} {last_name}")
