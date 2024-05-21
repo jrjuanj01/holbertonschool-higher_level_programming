@@ -58,7 +58,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-        
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         if isinstance(rect_1, Rectangle) is False:
