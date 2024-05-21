@@ -56,7 +56,10 @@ class Rectangle:
         self.__height = value
 
     def __str__(self):
+        """Prints a rectangle"""
         rec = ""
+        if self.__height == 0 or self.__width == 0:
+            return rec
         for i in range(self.__height):
             rec += "#" * self.__width + "\n"
         return rec
