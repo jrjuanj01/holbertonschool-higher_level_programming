@@ -30,10 +30,6 @@ class Rectangle:
             return 0
         return 2*(self.__width + self.__height)
 
-    def number_of_instances(self):
-        """Returns the number of instances of this class"""
-        return Rectangle.instance_count
-
     @property
     def width(self):
         """"Returns width"""
@@ -79,5 +75,6 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        print("Bye rectangle...")
         Rectangle.instance_count -= 1
+        print("Bye rectangle...")
+        
