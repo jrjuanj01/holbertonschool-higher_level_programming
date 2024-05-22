@@ -5,6 +5,10 @@ This file tests the print_sorted method of the
 MyList subclass
 
 >>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList(None)
+>>> print(my_list)
+Traceback (most recent call last):
+TypeError: 'NoneType' object is not iterable
 >>> my_list = MyList()
 >>> print(my_list)
 []
@@ -19,3 +23,6 @@ MyList subclass
 [1, 4, 2, 3, 5]
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
+>>> my_list.append(-1)
+>>> my_list.print_sorted()
+[-1, 1, 2, 3, 4, 5]
