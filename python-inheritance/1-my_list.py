@@ -9,7 +9,6 @@ class MyList(list):
         """Initializes Subclass list"""
 
         cls.list = value
-        return super().__init_subclass__()
 
     def print_sorted(self):
         """A Method that prints the inherited attributes"""
