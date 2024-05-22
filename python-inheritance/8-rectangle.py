@@ -4,12 +4,13 @@
 
 BaseGeomerty = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeomerty):
     """Class of Rectangle"""
 
     def __init__(self, width, height):
         """Initialization of a rectangle"""
-    
+
         if type(width) is not int:
             raise TypeError("width must be an integer")
         if width < 0:
