@@ -1,4 +1,4 @@
-#!/usr/bin/pyrhon3
+#!/usr/bin/python3
 """A function that returns the list of attributes and methods of an object"""
 
 
