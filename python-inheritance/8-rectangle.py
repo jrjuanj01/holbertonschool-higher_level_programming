@@ -11,8 +11,8 @@ class Rectangle(BaseGeomerty):
     def __init__(self, width, height):
         """Initialization of a rectangle"""
 
-        super().integer_validator(width)
+        super().integer_validator(self, width)
         self.__width = width
 
-        super().integer_validator(width)
+        super().integer_validator(self, height)
         self.__height = height
