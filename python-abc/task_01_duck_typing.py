@@ -18,7 +18,7 @@ class Shape(ABC):
 class Circle(Shape):
     """Circle class That inherits from Shape"""
     
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         if type(radius) in [int, float] and radius >= 0:
             self.radius = radius
     
