@@ -21,6 +21,8 @@ class Circle(Shape):
     def __init__(self, radius=0):
         if type(radius) in [int, float] and radius >= 0:
             self.radius = radius
+        else:
+            self.radius = 0
     
     def area(self):
         return (pi * (self.radius ** 2))
