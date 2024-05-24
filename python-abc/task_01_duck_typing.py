@@ -32,10 +32,10 @@ class Rectangle(Shape):
     """Rectangle class"""
     def __init__(self, width=0, height=0):
         if type(width) in [int, float]:
-            self.width = abs(width)
+            self.width = width
 
         if type(height) in [int, float]:
-            self.height = abs(height)
+            self.height = height
         
     def area(self):
         return (self.width * self.height)
