@@ -19,10 +19,8 @@ class Circle(Shape):
     """Circle class That inherits from Shape"""
     
     def __init__(self, radius=0):
-        if type(radius) in [int, float] and radius >= 0:
-            self.radius = radius
-        else:
-            self.radius = 0
+        if type(radius) in [int, float]:
+            self.radius = abs(radius)
     
     def area(self):
         return (pi * (self.radius ** 2))
@@ -34,10 +32,10 @@ class Rectangle(Shape):
     """Rectangle class"""
     def __init__(self, width=0, height=0):
         if type(width) in [int, float]:
-            self.width = width
+            self.width = abs(width)
 
         if type(height) in [int, float]:
-            self.height = height
+            self.height = abs(height)
         
     def area(self):
         return (self.width * self.height)
