@@ -21,12 +21,11 @@ class Student:
                 if key in attr:
                     result[key] = value
         else:
-            for key, value in self.__dict__.items():
-                result[key] = value
-        return result
+            return object.__dict__
 
     def reload_from_json(self, json):
         """Resets the attributes to default"""
 
-        for key, default in json.items():
-            self.key = default
+        for attr, value in self.__dict__.items():
+            self = json
+            
