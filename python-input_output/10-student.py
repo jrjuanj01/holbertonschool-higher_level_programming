@@ -15,7 +15,11 @@ class Student:
     def to_json(self, attr=None):
         """Converts instance to JSON format"""
         result = {}
-        for key, value in self.__dict__.items():
-            if key in attr:
+        if attr is not None:
+            for key, value in self.__dict__.items():
+                if key in attr:
+                    result[key] = value
+        else:
+            for key, value in self.__dict__.items():
                 result[key] = value
         return result
