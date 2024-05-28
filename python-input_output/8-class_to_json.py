@@ -9,4 +9,3 @@ def class_to_json(obj):
     for key, value in obj.__dict__.items():
         result[key] = value
     return result
- 
