@@ -26,6 +26,5 @@ class Student:
     def reload_from_json(self, json):
         """Resets the attributes to default"""
 
-        for attr, value in self.__dict__.items():
-            self = json
-            
+        for key, value in json.items():
+            setattr(self, key, value)
