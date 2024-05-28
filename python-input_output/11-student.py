@@ -29,4 +29,4 @@ class Student:
         """Resets the attributes to default"""
 
         for key, default in json.items():
-            self[key] = default
+            self.key = default
