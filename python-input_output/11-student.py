@@ -29,5 +29,5 @@ class Student:
         """Resets the attributes to default"""
 
         for attr, vlaue in self.__dict__.items():
-            for key, default in json.__dict__.items():
+            for key, default in json.items():
                 value = default
