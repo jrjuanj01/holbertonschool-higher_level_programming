@@ -23,7 +23,7 @@ class CustomObject:
               f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
-        """Serialize instance and save to thr given file"""
+        """Serialize instance and save to the given file"""
 
         with open(filename, "wb") as pfile:
             pickle.dump(self, pfile)
