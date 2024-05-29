@@ -4,9 +4,8 @@ import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(dictionary, filename):
-    """Serializes a dictionary to an XML file."""
-
-    root = ET.Element("root")
+    """serialize the dictionary into XML and save it to the given filename"""
+    root = ET.Element("data")
 
     for key, value in dictionary.items():
         child = ET.SubElement(root, key)
@@ -14,22 +13,15 @@ def serialize_to_xml(dictionary, filename):
 
     tree = ET.ElementTree(root)
     tree.write(filename)
-    ET.dump(root)
 
 
 def deserialize_from_xml(filename):
-    """Deserializes an XML file to a dictionary."""
-
+    """reads XML data from file and returns deserialized Python dictionary"""
     tree = ET.parse(filename)
     root = tree.getroot()
 
-    dictionary = {}
+    result_dict = {}
     for child in root:
-        if child.tag == 'age':
-            dictionary[child.tag] = int(child.text)
-        elif child.tag == 'is_student':
-            dictionary[child.tag] = child.text.lower() == 'true'
-        else:
-            dictionary[child.tag] = child.text
+        result_dict[child.tag] = child.text
 
-    return dictionary
+    return result_dict
