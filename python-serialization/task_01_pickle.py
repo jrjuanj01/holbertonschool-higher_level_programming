@@ -5,7 +5,7 @@ import pickle
 
 class CustomObject:
     """Custom Object class"""
-    
+
     def __init__(self, name="", age=0, is_student=False):
         """Instance definition"""
 
@@ -13,11 +13,11 @@ class CustomObject:
         self.age = age
         self.is_student = is_student
 
-
     def display(self):
         """Displays the class attribute values"""
 
-        print(f"Name: {self.name}\nAge: {self.age}\nIs Student: {self.is_student}")
+        print(f"Name: {self.name}\nAge: {self.age}\n
+              Is Student: {self.is_student}")
 
     def serialize(self, filename):
         """Serialize instance and save to thr given file"""
@@ -25,9 +25,8 @@ class CustomObject:
         with open(filename, "wb") as pfile:
             pickle.dump(self, pfile)
 
-
     @classmethod
-    def deserialize(cls, filename): 
+    def deserialize(cls, filename):
         """Create an instance from the given pickle file"""
 
         try:
