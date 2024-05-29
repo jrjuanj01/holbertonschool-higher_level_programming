@@ -11,7 +11,6 @@ def convert_csv_to_json(filename):
         for rows in csvReader:
             key = rows['name']
             data[key] = rows
-            
-        print(data)
+
     with open("data.json", "w", encoding="utf-8") as jfile:
-        json.dump(data, "data.json")
+        json.dump(data, jfile)
