@@ -8,8 +8,8 @@ import pickle
 class CustomObject:
     """Custom Object class for serialization"""
 
-    def __init__(self, name="", age=0, is_student=False):
-        """Instance definition of trhr custom class"""
+    def __init__(self, name="", age=0, is_student=None):
+        """Instance definition of trhe custom class"""
 
         self.name = name
         self.age = age
