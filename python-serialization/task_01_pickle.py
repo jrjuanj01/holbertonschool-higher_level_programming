@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""Custom Object Class Module"""
+"""Custom Object Class Module for pickling"""
 import pickle
 
 
 class CustomObject:
-    """Custom Object class"""
+    """Custom Object class for serialization"""
 
     def __init__(self, name="", age=0, is_student=False):
-        """Instance definition"""
+        """Instance definition of trhr custom class"""
 
         self.name = name
         self.age = age
