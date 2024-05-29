@@ -16,8 +16,9 @@ class CustomObject:
     def display(self):
         """Displays the class attribute values"""
 
-        print(f"Name: {self.name}\nAge: {self.age}\n
-              Is Student: {self.is_student}")
+        print(f"Name: {self.name}\n"
+              f"Age: {self.age}\n"
+              f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
         """Serialize instance and save to thr given file"""
