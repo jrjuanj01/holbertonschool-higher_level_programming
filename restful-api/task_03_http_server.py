@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """Developing a simple API using Python with the http.server module"""
 import http.server
 import json
