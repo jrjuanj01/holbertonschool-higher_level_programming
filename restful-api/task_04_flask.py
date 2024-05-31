@@ -32,7 +32,7 @@ def add_user():
         return jsonify({'error': 'Username is required'}), 400    
     if username in users:
         return jsonify({'error': 'User already exists'}), 400
-    users[username] = data
+    users.update(data)
 
     return jsonify({
         'message': 'User added', 'user': data}), 201
