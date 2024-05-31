@@ -25,17 +25,15 @@ def status():
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    data = request.json()
-    username = data.get('username')
-    
-    if not username: 
-        return jsonify({'error': 'Username is required'}), 400    
-    if username in users:
-        return jsonify({'error': 'User already exists'}), 400
-    users.update(data)
+    newuser = request.json
+    username = newuser.get("username")
 
-    return jsonify({
-        'message': 'User added', 'user': data}), 201
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
+    if username == users:
+        return jsonify({"error": "User already exists"}), 400
+    users[username] = newuser
+    return jsonify({"message": "User added", "user": newuser}), 201
 
 
 @app.route("/user/<username>")
