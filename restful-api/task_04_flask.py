@@ -25,7 +25,7 @@ def status():
 
 @app.route("/add_user", methods=['POST'])
 def add_user():
-    data = request.get_json()
+    data = request.json()
     username = data.get('username')
     if not username: 
         return jsonify({'error': 'User is required'}), 400    
