@@ -23,7 +23,7 @@ def status():
     return 'OK'
 
 
-@app.route("/add_user", methods=['POST'])
+@app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.json()
     username = data.get('username')
