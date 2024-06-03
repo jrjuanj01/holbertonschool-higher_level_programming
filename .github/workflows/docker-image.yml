@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out the repository
-      uses: actions/checkout@v3
+    - name: Repository Verification
+      uses: actions/checkout@v1
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -26,7 +26,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v4
       with:
-        context: .
+        context: ./devops_essentials/docker-alpine-extended/Dockerfile
         push: true
         tags: ghcr.io/jrjuanj01/my-image:latest
 
