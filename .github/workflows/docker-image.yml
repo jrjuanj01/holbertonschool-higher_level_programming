@@ -6,29 +6,16 @@ on:
       - main
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Repository Verification
-      uses: actions/checkout@v1
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
-
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      run: docker build . --file ./devops_essentials/docker-alpine-extended/Dockerfile --tag ghcr.io/jrjuanj01/my-docker-image:latest
     - name: Log in to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: jrjuanj01
-        password: ${{ secrets.CR_PAT }}
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v4
-      with:
-        context: ./devops_essentials/docker-alpine-extended/Dockerfile
-        push: true
-        tags: ghcr.io/jrjuanj01/my-image:latest
-
-    - name: Log out from GitHub Container Registry
-      run: docker logout ghcr.io
+      run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+    - name: Push Docker image to registry
+      run: docker push ghcr.io/jrjuanj01/my-docker-image:latest
