@@ -1,3 +1,2 @@
 -- Block
-SELECT *
-FROM mysql
+SHOW TABLES in mysql;
