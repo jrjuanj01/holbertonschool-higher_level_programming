@@ -1,2 +1,2 @@
 -- Block
-SHOW ALL ROWS IN first_table;
+SHOW ROWS IN first_table;
