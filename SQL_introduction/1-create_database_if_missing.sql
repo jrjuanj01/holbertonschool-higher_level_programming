@@ -1,2 +1,2 @@
---Block
+-- Comment 
 CREATE DATABASE hbtn_0c_0;
