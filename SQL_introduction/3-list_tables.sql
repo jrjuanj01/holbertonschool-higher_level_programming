@@ -1,2 +1,2 @@
 -- Block
-SHOW TABLES in mysql;
+SHOW TABLES
