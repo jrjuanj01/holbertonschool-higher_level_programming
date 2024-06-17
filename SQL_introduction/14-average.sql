@@ -1,3 +1,3 @@
 -- Block
-SELECT AVG(score) AS avarage
+SELECT AVG(score) AS average
 FROM second_table;
