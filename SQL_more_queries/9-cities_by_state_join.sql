@@ -1,6 +1,7 @@
 -- Block
-SELECT id,
-    name
+SELECT cities.id,
+    cities.name,
+    states.name
 FROM cities
-    INNER JOIN states USING (name)
-ORDER BY id ASC;
+    INNER JOIN states USING (states.id)
+ORDER BY cities.id ASC;
