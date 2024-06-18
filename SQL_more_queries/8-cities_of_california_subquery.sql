@@ -1,10 +1,10 @@
 -- Block
 SELECT id,
     name
-FROM hbtn_0d_usa.cities
+FROM cities
 WHERE state_id = (
         SELECT id
-        FROM hbtn_0d_usa.states
-        WHERE name = 'California'
+        FROM states
+        WHERE name = "California"
     )
 ORDER BY cities.id ASC;
