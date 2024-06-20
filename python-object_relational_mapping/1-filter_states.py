@@ -4,7 +4,7 @@ import MySQLdb
 import sys
 
 
-def list_states(username, password, database_name):
+def list_states_N(username, password, database_name):
     """Connects to MySQL server"""
 
     try:
@@ -29,9 +29,9 @@ def list_states(username, password, database_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python3 0-selsct_states.py username password database")
+        print("Usage: python3 1-filter_states.py username password database")
     else:
         username = sys.argv[1]
         password = sys.argv[2]
         database_name = sys.argv[3]
-        list_states(username, password, database_name)
+        list_states_N(username, password, database_name)
