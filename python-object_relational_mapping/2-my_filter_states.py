@@ -15,7 +15,7 @@ def list_states(username, password, database_name, search):
                                password=password,
                                db=database_name)
         cursor = conn.cursor()
-        cursor.execute(f"SELECT * FROM states WHERE (name) = \
+        cursor.execute(f"SELECT * FROM states WHERE states.name = \
                         '{search}' ORDER BY states.id ASC;")
         states = cursor.fetchall()
         for state in states:
