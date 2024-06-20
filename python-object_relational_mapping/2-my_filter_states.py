@@ -15,8 +15,8 @@ def list_states(username, password, database_name, search):
                                password=password,
                                db=database_name)
         cursor = conn.cursor()
-        cursor.execute(f"SELECT * FROM states WHERE states.name = \
-                        '{search}' ORDER BY states.id ASC;")
+        cursor.execute("SELECT * FROM states WHERE states.name = \
+                        '{}' ORDER BY states.id ASC;".format(search))
         states = cursor.fetchall()
         for state in states:
             print(state)
@@ -29,7 +29,7 @@ def list_states(username, password, database_name, search):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python3 1-filter_states.py username password database")
+        print("Usage: python3 file username password database search")
     else:
         username = sys.argv[1]
         password = sys.argv[2]
