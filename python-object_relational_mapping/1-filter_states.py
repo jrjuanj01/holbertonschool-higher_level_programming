@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Lists all states in a database"""
 
-
 import MySQLdb
 import sys
 
@@ -21,9 +20,18 @@ def list_states_N(username, password, database_name):
         states = cursor.fetchall()
         for state in states:
             print(state)
-
         cursor.close()
         conn.close()
 
     except MySQLdb.Error as e:
         print(f"Error connectig to MySQL or execuiting query: {e}")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: python3 1-filter_states.py username password database")
+    else:
+        username = sys.argv[1]
+        password = sys.argv[2]
+        database_name = sys.argv[3]
+        list_states_N(username, password, database_name)
