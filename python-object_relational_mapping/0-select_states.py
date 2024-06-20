@@ -9,10 +9,10 @@ def list_states(username, password, database_name):
 
     try:
         conn = MySQLdb.connect(host='localhost',
-                            port=3306,
-                            user=username,
-                            password=password,
-                            db=database_name)
+                               port=3306,
+                               user=username,
+                               password=password,
+                               db=database_name)
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
         states = cursor.fetchall()
@@ -25,9 +25,10 @@ def list_states(username, password, database_name):
     except MySQLdb.Error as e:
         print(f"Error connectig to MySQL or execuiting query: {e}")
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: python3 0-selsct_states.py mysql_username mysql_password database_name")
+        print("Usage: python3 0-selsct_states.py username password database")
     else:
         username = sys.argv[1]
         password = sys.argv[2]
