@@ -28,10 +28,11 @@ def list_states(username, password, database_name, search):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print("Usage: python3 1-filter_states.py username password database")
     else:
         username = sys.argv[1]
         password = sys.argv[2]
         database_name = sys.argv[3]
-        list_states(username, password, database_name)
+        search = sys.argv[4]
+        list_states(username, password, database_name, search)
