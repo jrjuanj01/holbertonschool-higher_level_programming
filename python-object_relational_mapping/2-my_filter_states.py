@@ -15,8 +15,8 @@ def list_states(username, password, database_name, search):
                                password=password,
                                db=database_name)
         cursor = conn.cursor()
-        cursor.execute(f"SELECT * FROM states\
-                       WHERE (name) LIKE BINARY '{search}' ORDER BY states.id ASC;")
+        cursor.execute(f"SELECT * FROM states WHERE (name) LIKE BINARY\
+                        '{search}' ORDER BY states.id ASC;")
         states = cursor.fetchall()
         for state in states:
             print(state)
