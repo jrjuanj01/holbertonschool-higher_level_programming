@@ -1,2 +1,4 @@
 .vscode/settings.json
 python-object_relational_mapping/venv/
+python-object_relational_mapping/.vscode/settings.json
+python-object_relational_mapping/juanjo.session.sql

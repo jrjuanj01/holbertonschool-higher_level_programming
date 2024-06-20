@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 import MySQLdb
+import sys
 
-def connect_to_mysql(username, password, database_name):
+def list_states(username, password, database_name):
     """Connects to MySQL server"""
     
     try:
-        conn = MySQLdb.connect(host="localhost",
-                            port="33060",
+        conn = MySQLdb.connect(host='localhost',
+                            port=3306,
                             user=username,
                             password=password,
                             db=database_name)
         cursor = conn.cursor()
         
-        cursor.execute("SELECT * FROM staes ORDER BY states.id ASC")
+        cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
         
         states = cursor.fetchall()
         
@@ -20,7 +21,16 @@ def connect_to_mysql(username, password, database_name):
             print(state)
             
         cursor.close()
-        conn.close
+        conn.close()
         
     except MySQLdb.Error as e:
         print(f"Error connectig to MySQL or execuiting query: {e}")
+        
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print("Usage: python3 0-selsct_states.py mysql_username mysql_password database_name")
+    else:
+        username = sys.argv[1]
+        password = sys.argv[2]
+        database_name = sys.argv[3]
+        list_states(username, password, database_name)
