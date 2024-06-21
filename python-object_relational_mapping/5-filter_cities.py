@@ -15,9 +15,9 @@ def list_states(username, password, database_name, search):
                                password=password,
                                db=database_name)
         cursor = conn.cursor()
-        query = "SELECT name FROM hbtn_0e_4_usa.cities\
+        query = "SELECT name FROM cities\
                  WHERE state_id = (\
-                     SELECT id FROM hbtn_0e_4_usa.states\
+                     SELECT id FROM states\
                      WHERE name LIKE BINARY %s)\
                  ORDER BY id ASC"
 
