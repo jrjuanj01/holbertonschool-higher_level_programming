@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from model_state import Base, State
 import sys
+import sqlalchemy
 
 
 if __name__ == "__main__":
