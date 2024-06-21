@@ -17,14 +17,15 @@ def list_states(username, password, database_name, search):
         cursor = conn.cursor()
         query = "SELECT name FROM hbtn_0e_4_usa.cities\
                  WHERE state_id = (\
-                     SELECT state.id FROM hbtn_0e_4_usa.states\
-                     WHERE name = %s)\
+                     SELECT id FROM hbtn_0e_4_usa.states\
+                     WHERE name LIKE BINARY %s)\
                  ORDER BY id ASC"
 
         cursor.execute(query, (search,))
         cities = cursor.fetchall()
-        for city in cities:
-            print(city)
+        city_names = [city[0] for city in cities]
+        formated_cities = ", ".join(city_names)
+        print(formated_cities)
         cursor.close()
         conn.close()
 
