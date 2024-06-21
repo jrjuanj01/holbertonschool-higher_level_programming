@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     """create engine"""
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 4:
         print("wrong")
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
@@ -19,4 +19,5 @@ if __name__ == "__main__":
     s1 = State(name="Louisiana")
     session.add(s1)
     session.commit()
+    print(f"{s1.id}")
     session.close()
