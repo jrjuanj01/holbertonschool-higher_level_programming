@@ -8,6 +8,8 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     """create engine"""
+    if len(sys.argv) != 4:
+        print("wrong")
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
@@ -16,5 +18,5 @@ if __name__ == "__main__":
     session = Session
     states = session.query(State).order_by(State.id).all()
     for state in states:
-        print(state)
+        print(f"{state.id}: {state.name}")
     session.close()
