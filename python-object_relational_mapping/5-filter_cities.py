@@ -20,7 +20,7 @@ def list_states(username, password, database_name, search):
                      SELECT state.id FROM hbtn_0e_4_usa.states\
                      WHERE name = %s)\
                  ORDER BY id ASC"
-        
+
         cursor.execute(query, (search,))
         cities = cursor.fetchall()
         for city in cities:
