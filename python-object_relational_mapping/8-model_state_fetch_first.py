@@ -16,7 +16,9 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).all()
-    state = states[0]
-    print(f"{state.id}: {state.name}")
+    state = session.query(State).order_by(State.id).first()
+    if state is not None:
+        print(f"{state.id}: {state.name}")
+    else:
+        print("Nothing")
     session.close()
