@@ -2,7 +2,8 @@
 """Fetches states from dtatbase"""
 from model_state import Base, State
 import sys
-from sqlalchemy import create_engine, session_maker
+from sqlalchemy import create_engine 
+from sqlalchemy.orm import session_maker
 
 
 if __name__ == "__main__":
