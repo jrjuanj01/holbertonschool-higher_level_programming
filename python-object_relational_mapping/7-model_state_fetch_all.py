@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Fetches states from dtatbase"""
 from model_state import Base, State
 import sys
 import sqlalchemy
