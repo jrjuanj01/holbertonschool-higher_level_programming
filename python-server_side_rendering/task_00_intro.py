@@ -3,10 +3,6 @@ import os
 def generate_invitations(template: str, attendees: list):
     """Create invitations based on the template and fill in the information with the list of attendees."""
 
-    # Ensure the output directory exists
-    output_directory = 'invitations'
-    os.makedirs(output_directory, exist_ok=True)
-
     # Check input types
     if not isinstance(template, str):
         print("Error: Template must be a string.")
@@ -34,7 +30,7 @@ def generate_invitations(template: str, attendees: list):
         }
 
         # Generate the filename
-        filename = os.path.join(output_directory, f"output_{i}.txt")
+        filename = f"output_{i}.txt"
         
         # Write the processed template to the file
         try:
