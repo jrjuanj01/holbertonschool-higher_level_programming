@@ -1,65 +1,72 @@
-from flask import Flask, render_template, request
-import json
 import csv
+import json
+
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-def read_json(file_path):
-    with open(file_path, 'r') as f:
-        data = json.load(f)
-    return data
-
-def read_csv(file_path):
-    products = []
-    with open(file_path, 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            products.append(row)
-    return products
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
+
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
 
+
+@app.route('/items')
+def items():
+    with open('items.json', 'r') as f:
+        items_data = json.load(f)
+    items_list = items_data.get('items', [])
+    return render_template('items.html', items=items_list)
+
+
+def read_json_file():
+    with open('products.json', 'r') as json_file:
+        data = json.load(json_file)
+    return data
+
+
+def read_csv_file():
+    data = []
+    with open('products.csv', 'r', newline='') as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            data.append(row)
+    return data
+
+
 @app.route('/products')
-def products():
+def display_products():
     source = request.args.get('source')
     product_id = request.args.get('id')
-    error_message = None
-    products = []
 
+    if source not in ['json', 'csv']:
+        return render_template('product_display.html', error='Wrong source')
+
+    data = []
     if source == 'json':
-        try:
-            data = read_json('products.json')
-            products = data
-        except Exception as e:
-            error_message = f"Error reading JSON file: {e}"
+        data = read_json_file()
     elif source == 'csv':
-        try:
-            products = read_csv('products.csv')
-        except Exception as e:
-            error_message = f"Error reading CSV file: {e}"
-    else:
-        error_message = "Wrong source. Please specify 'json' or 'csv'."
+        data = read_csv_file()
 
     if product_id:
-        try:
-            product_id = int(product_id)
-            products = [product for product in products if int(product['id']) == product_id]
-            if not products:
-                error_message = "Product not found."
-        except ValueError:
-            error_message = "Invalid product id."
+        filtered_data = [product for product in data if str(
+            product['id']) == product_id]
+        if not filtered_data:
+            return render_template('product_display.html', error='Product not found')
+        data = filtered_data
 
-    return render_template('product_display.html', products=products, error_message=error_message)
+    return render_template('product_display.html', products=data)
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
