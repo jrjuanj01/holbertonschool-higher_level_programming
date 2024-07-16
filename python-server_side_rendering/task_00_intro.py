@@ -7,7 +7,7 @@ def generate_invitations(template:str, attendees:list):
     try:
         if type(template) is not str:
             raise TypeError("Template must be a string")
-        if template is "":
+        if template == "":
             raise ValueError("Template cannot be empty")
         if type(attendees) is not list:
             raise TypeError("Attendees must be a list")
