@@ -7,10 +7,14 @@ def generate_invitations(template:str, attendees:list):
     try:
         if type(template) is not str:
             raise TypeError("Template must be a string")
-        if template == "":
-            raise ValueError("Template cannot be empty")
         if type(attendees) is not list:
             raise TypeError("Attendees must be a list")
+        if not template.strip():
+            print("Error: Template is empty, no output files generated.")
+            return
+        if not attendees:
+            print("Error: No data provided, no output files generated.")
+            return
         for attendee in attendees:
             if type(attendee) is not dict:
                 raise TypeError("Attendees must be a list of dictionaries")
